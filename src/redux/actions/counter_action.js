@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT } from './action_types.js';
+import { INCREMENT, DECREMENT } from '../action_types';
 // 创建一个同步的action,用于加
 export const creatIncrementAction = value => ({ type: INCREMENT, data: value });
 // 创建一个同步的action，用于减

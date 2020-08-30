@@ -24,10 +24,10 @@ export default class Counter extends Component {
     this.props.incrementAsync(value * 1, 1000);
   }
   render() {
-    let { count } = this.props
+    let { count, person } = this.props
     return (
       <div>
-        <h3>当前计数为{count}</h3>
+        <h3>当前计数为{count} ,当前状态内人数为{person.length}</h3>
         <select ref={select => this.selectNumber = select}>
           <option value="1">1</option>
           <option value="2">2</option>
