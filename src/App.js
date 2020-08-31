@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { } from 'antd';
 import { Route, Switch } from 'react-router-dom';
-import Admin from './pages/admin/admin.jsx';
-import Login from './pages/login/login.jsx';
+import Admin from './containers/pages/admin/admin';
+import Login from './containers/pages/login/login';
 import 'antd/dist/antd.less'
 export default class App extends Component {
   render() {
