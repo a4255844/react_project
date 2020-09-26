@@ -19,25 +19,27 @@ class LeftNav extends Component {
 
    // 创建菜单的方法，递归实现
    createMenu = (target) => {
-      return target.map(item => {
-         if (this.hasAuth(item)) {  //调用遍历用户权限的方法
-            if (!item.children) {
-               return (
-                  <Item key={item.key} icon={item.icon} onClick={() => { this.props.saveTitle(item.title) }}>
-                     <Link to={item.path}>
-                        {item.title}
-                     </Link>
-                  </Item>
-               )
-            } else {
-               return (
-                  <SubMenu key={item.key} icon={item.icon} title={item.title}>
-                     {this.createMenu(item.children)}
-                  </SubMenu>
-               )
+      return (
+         target.map(item => {
+            if (this.hasAuth(item)) {  //调用遍历用户权限的方法
+               if (!item.children) {
+                  return (
+                     <Item key={item.key} icon={item.icon} onClick={() => { this.props.saveTitle(item.title) }}>
+                        <Link to={item.path}>
+                           {item.title}
+                        </Link>
+                     </Item>
+                  )
+               } else {
+                  return (
+                     <SubMenu key={item.key} icon={item.icon} title={item.title}>
+                        {this.createMenu(item.children)}
+                     </SubMenu>
+                  )
+               }
             }
-         }
-      })
+         })
+      )
    }
    // 遍历当前用户的浏览权限
    hasAuth = (item) => {
