@@ -70,16 +70,22 @@ class Header extends Component {
    // 遍历找到对应路由的title
    getTitle = () => {
       console.log('---getTitle---');
+      // 把路由路径分隔成数组
       let pathArr = this.props.location.pathname.split('/');
+      // 获取路径的最后项
+      let pathKey = pathArr[pathArr.length - 1]
+      // 如果路径中包含product,就默认使用
+      if (pathArr.indexOf('product') !== -1) pathKey = 'product'
       let result;
+      // 遍历，如果目标key和pathKey相等，则表示找到该目标，并使用该目标的title
       menuConfig.forEach(item => {
          if (item.children instanceof Array) {
             let temp = item.children.find(citem => {
-               return citem.key === pathArr[pathArr.length - 1]
+               return citem.key === pathKey
             })
             if (temp) result = temp.title
          } else {
-            if (item.key === pathArr[pathArr.length - 1]) {
+            if (item.key === pathKey) {
                result = item.title
             }
          }

@@ -11,6 +11,8 @@ import Category from '../category/category'
 import Line from '../line/line'
 import Pie from '../pie/pie'
 import Product from '../product/product'
+import Detail from '@/containers/product/detail'
+import AddUpdate from '@/containers/product/add_update'
 import Role from '../role/role'
 import User from '../user/user'
 import './css/admin.less';
@@ -48,12 +50,16 @@ class Admin extends Component {
                      <Switch>
                         <Route path="/admin/home" component={Home} />
                         <Route path="/admin/prod_about/category" component={Category} />
-                        <Route path="/admin/prod_about/product" component={Product} />
+                        <Route path="/admin/prod_about/product" component={Product} exact />
+                        <Route path="/admin/prod_about/product/detail/:id" component={Detail} />
+                        <Route path="/admin/prod_about/product/add_update" component={AddUpdate} exact />
+                        <Route path="/admin/prod_about/product/add_update/:id" component={AddUpdate} />
                         <Route path="/admin/user" component={User} />
                         <Route path="/admin/role" component={Role} />
                         <Route path="/admin/charts/bar" component={Bar} />
                         <Route path="/admin/charts/line" component={Line} />
                         <Route path="/admin/charts/pie" component={Pie} />
+                        <Redirect to='/admin/home' />
                      </Switch>
                   </Content>
                   <Footer className="footer">

@@ -5,3 +5,6 @@ export const BASE_URL = '';
 export const WEATHER_AK = '3p49MVra6urFRGOT9s8UBWr2';
 // 当前城市
 export const CITY = 'yinchuan'
+// 表格每页展示的条数
+export const PAGE_SIZE = 5
+export const IMAGE_BASE_URL = "http://localhost:4000/upload/"
